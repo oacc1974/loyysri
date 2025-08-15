@@ -66,7 +66,7 @@ export async function POST(
     // Firmar XML
     const xmlFirmado = await firmarXML(
       xml,
-      certificado.certificado,
+      certificado.data,
       certificado.password
     );
     
