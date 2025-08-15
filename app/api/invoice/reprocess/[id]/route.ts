@@ -27,7 +27,7 @@ export async function POST(
     }
     
     // Verificar si la factura ya está autorizada
-    if (factura.sri.estado === 'AUTORIZADO') {
+    if (factura.sri && factura.sri.estado === 'AUTORIZADO') {
       return NextResponse.json(
         { error: 'La factura ya está autorizada' },
         { status: 400 }
