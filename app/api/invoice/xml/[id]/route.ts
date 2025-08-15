@@ -57,7 +57,7 @@ export async function GET(
     // Firmar XML
     const xmlFirmado = await firmarXML(
       xml,
-      certificado.certificado,
+      certificado.data,
       certificado.password
     );
     
