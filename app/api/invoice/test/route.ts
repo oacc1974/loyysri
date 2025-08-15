@@ -93,7 +93,10 @@ export async function POST(request: NextRequest) {
     // Actualizar estado de la factura
     // Inicializar factura.sri si no existe
     if (!factura.sri) {
-      factura.sri = {};
+      factura.sri = {
+        estado: 'PENDIENTE',
+        mensajes: []
+      };
     }
     factura.sri.estado = respuestaEnvio.estado;
     factura.sri.mensajes = respuestaEnvio.mensajes;
