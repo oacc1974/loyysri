@@ -91,6 +91,10 @@ export async function POST(request: NextRequest) {
     const respuestaEnvio = await enviarComprobante(xmlFirmado, config.ambiente);
     
     // Actualizar estado de la factura
+    // Inicializar factura.sri si no existe
+    if (!factura.sri) {
+      factura.sri = {};
+    }
     factura.sri.estado = respuestaEnvio.estado;
     factura.sri.mensajes = respuestaEnvio.mensajes;
     await factura.save();
@@ -110,7 +114,7 @@ export async function POST(request: NextRequest) {
       success: true,
       message: 'Factura procesada correctamente',
       claveAcceso,
-      estado: factura.sri.estado,
+      estado: factura.sri?.estado || 'DESCONOCIDO',
       autorizacion: respuestaAutorizacion,
       xmlUrl: `/api/invoice/xml/${factura._id}`,
       pdfUrl: `/api/invoice/pdf/${factura._id}`,
