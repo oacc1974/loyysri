@@ -1,4 +1,4 @@
-import { Schema, model, models, Document, Model } from 'mongoose';
+import { Schema, model, models, Document, Model, Types } from 'mongoose';
 
 // Interfaces para TypeScript
 
@@ -31,6 +31,7 @@ export interface IConfiguracion extends Document {
   email: string;
   loyverseApiToken?: string;
   certificadoDigital?: ICertificadoDigital;
+  certificadoId?: Types.ObjectId;
   createdAt: Date;
   updatedAt: Date;
 }

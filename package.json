@@ -37,7 +37,9 @@
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "@types/pdfkit": "^0.12.10",
-    "@types/xml2js": "^0.4.12"
+    "@types/xml2js": "^0.4.12",
+    "@types/mongoose": "^5.11.97",
+    "@types/csv-writer": "^1.0.4"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.15",
