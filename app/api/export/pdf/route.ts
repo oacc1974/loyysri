@@ -73,8 +73,11 @@ export async function GET(request: NextRequest) {
     const fecha = new Date().toISOString().split('T')[0];
     const filename = `facturas-sri-${fecha}.pdf`;
     
+    // Convertir Buffer a Uint8Array que es compatible con BodyInit
+    const uint8Array = new Uint8Array(pdfBuffer);
+    
     // Devolver respuesta con el PDF
-    return new NextResponse(pdfBuffer, {
+    return new NextResponse(uint8Array, {
       headers: {
         'Content-Type': 'application/pdf',
         'Content-Disposition': `attachment; filename="${filename}"`,

@@ -73,8 +73,11 @@ export async function GET(request: NextRequest) {
     const fecha = new Date().toISOString().split('T')[0];
     const filename = `facturas-sri-${fecha}.csv`;
     
+    // Convertir Buffer a Uint8Array que es compatible con BodyInit
+    const uint8Array = new Uint8Array(csvBuffer);
+    
     // Devolver respuesta con el CSV
-    return new NextResponse(csvBuffer, {
+    return new NextResponse(uint8Array, {
       headers: {
         'Content-Type': 'text/csv; charset=utf-8',
         'Content-Disposition': `attachment; filename="${filename}"`,
