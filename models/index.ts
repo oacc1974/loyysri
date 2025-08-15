@@ -356,8 +356,12 @@ FacturaSchema.index({ identificacionComprador: 1 });
 FacturaSchema.index({ 'sri.estado': 1 });
 
 // Modelos
-export const Configuracion: Model<IConfiguracion> =
+export const ConfiguracionModel: Model<IConfiguracion> =
   models.Configuracion || model<IConfiguracion>('Configuracion', ConfiguracionSchema);
 
-export const Factura: Model<IFactura> =
+export const FacturaModel: Model<IFactura> =
   models.Factura || model<IFactura>('Factura', FacturaSchema);
+
+// Exportar también con los nombres originales para mantener compatibilidad
+export const Configuracion = ConfiguracionModel;
+export const Factura = FacturaModel;
