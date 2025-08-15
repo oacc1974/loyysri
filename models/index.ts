@@ -362,6 +362,12 @@ export const ConfiguracionModel: Model<IConfiguracion> =
 export const FacturaModel: Model<IFactura> =
   models.Factura || model<IFactura>('Factura', FacturaSchema);
 
+// Exportar el modelo de certificado digital
+// Nota: Aunque no tiene su propia colección, lo exportamos para mantener consistencia en las importaciones
+export const CertificadoModel = {
+  schema: CertificadoDigitalSchema
+};
+
 // Exportar también con los nombres originales para mantener compatibilidad
 export const Configuracion = ConfiguracionModel;
 export const Factura = FacturaModel;
